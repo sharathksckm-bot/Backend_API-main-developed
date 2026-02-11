@@ -1,0 +1,53 @@
+############################
+# System / OS
+############################
+.DS_Store
+Thumbs.db
+
+############################
+# Composer
+############################
+/vendor/
+
+############################
+# Environment / Config
+############################
+.env
+.env.*
+application/config/database.php
+application/config/config.php
+
+############################
+# Logs & Cache
+############################
+application/logs/
+application/cache/
+
+############################
+# Uploads / Generated files
+############################
+uploads/
+assets/uploads/
+tmp/
+temp/
+
+############################
+# IDE / Editor
+############################
+.vscode/
+.idea/
+*.swp
+
+############################
+# Node (if used)
+############################
+node_modules/
+npm-debug.log
+yarn-error.log
+
+############################
+# Build / Runtime
+############################
+*.log
+*.zip
+*.tar

@@ -1,0 +1,37 @@
+<?php
+
+defined('BASEPATH') or exit('No direct script access allowed');
+
+class Category_model extends CI_Model
+{
+    private $table = 'college';
+    private $clgCourse = 'college_course';
+    public function __construct()
+    {
+        parent::__construct();
+    }
+	
+	 public function getCategoryForMenu()
+    {
+        $sql = "SELECT id, catname, menuorder, type 
+                FROM category 
+                WHERE status = 1 AND type = 'college' 
+                ORDER BY 
+                    CASE 
+                        WHEN type = 'college' THEN 0 
+                        ELSE 1 
+                    END,
+                    CASE 
+                        WHEN menuorder = 0 THEN 9999 
+                        ELSE menuorder 
+                    END;
+                ";
+
+        $query = $this->db->query($sql);
+        $result = $query->result(); // Get the result before returning
+        return $result; // Return the result
+    }
+	
+	
+	
+}
