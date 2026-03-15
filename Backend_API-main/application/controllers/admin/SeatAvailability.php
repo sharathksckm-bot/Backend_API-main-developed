@@ -557,4 +557,27 @@ class SeatAvailability extends CI_Controller
         echo json_encode($response);
         exit();
     }
+
+    /**
+     * Get Sample CSV template for seat availability
+     */
+    public function getSampleCsv()
+    {
+        $data = json_decode(file_get_contents("php://input"));
+        
+        if ($this->input->server("REQUEST_METHOD") == "OPTIONS") {
+            $data["status"] = "ok";
+            echo json_encode($data);
+            exit();
+        }
+        
+        $csvpath = base_url() . "uploads/samplecsv/SampleSeatAvailability.csv";
+        
+        $response["response_code"] = "200";
+        $response["response_message"] = "Success";
+        $response["samplecsv"] = $csvpath;
+
+        echo json_encode($response);
+        exit();
+    }
 }
